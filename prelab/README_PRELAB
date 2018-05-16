@@ -1,0 +1,75 @@
+1. Sean O'Donnell
+2. Detailed description:
+
+Before entering the execution of the program, the debugger was essentially a command line prompt beginning with '(gdb)'. After creating a breakpoint, gdb output text describing where exactly the breakpoint is by file and line, as well as a hexadecimal number. After typing 'run', gdb said it was running the executable, then output the location of the breakpoint I had just created and the code on that line. Each time I typed 'next', it showed the next line of code in the program as it stepped through the execution. When printing variables, the name of the variable was replaced with '$' followed by an integer (1 for the first print, 2 for the next etc.). After typing 'continue', gdb said "Continuing" and then wrote the same program output as is output by running the 'hello' executable outside of gdb, followed by "Program exited normally." and the '(gdb)' prompt. On the next run, gdb acted the same. When setting variable values, gdb gave no output (which I assumed to mean that the operation was successful). After typing 'continue' this time, the program output was different: "Hello, World!" was output 5 times, and the name changed to Alan Turing.
+
+3. 	Name		Value
+	max		1
+	i		0
+	name_string	"Sean O'Donnell"
+
+4. 	First run: the output was "Hello, World!" once, on a single line, followed by "My name is Sean O'Donnell." on the next line.
+	Second run: the output was a line containing the text "Hello, World!", followed by the text "Hello, World!" 4 more times on the following 4 lines (one "Hello, World!" per line). The 6th & final line of output consisted of the text "My name is Alan Turing.".
+	Differences: The number of times "Hello, World!" was printed on its own line (1 on first, 5 on second), and the name on the final line (Sean O'Donnell on first, Alan Turing on second).
+
+5. Never used it before.
+
+
+To make up for any lack of detail in my responses, I have included the full gdb console output:
+
+odonnell.325@cse-sl4 ~/cse2421/prelab (master) $ gdb hello
+GNU gdb (GDB) Red Hat Enterprise Linux (7.2-92.el6)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/odonnell.325/cse2421/prelab/hello...done.
+(gdb) break main
+Breakpoint 1 at 0x40050c: file hello.c, line 5.
+(gdb) run
+Starting program: /home/odonnell.325/cse2421/prelab/hello
+
+Breakpoint 1, main () at hello.c:5
+5	char name_string[] = "Sean O'Donnell";
+(gdb) next
+7	int max = 1;
+(gdb) next
+9	for (i = 0; i <max; i++)
+(gdb) print max
+$1 = 1
+(gdb) print i
+$2 = 0
+(gdb) print name_string
+$3 = "Sean O'Donnell"
+(gdb) continue
+Continuing.
+Hello, World!
+My name is Sean O'Donnell.
+
+Program exited normally.
+(gdb) run
+Starting program: /home/odonnell.325/cse2421/prelab/hello
+
+Breakpoint 1, main () at hello.c:5
+5	char name_string[] = "Sean O'Donnell";
+(gdb) next
+7	int max = 1;
+(gdb) next
+9	for (i = 0; i <max; i++)
+(gdb) set variable max = 5
+(gdb) set name_string = "Alan Turing"
+(gdb) continue
+Continuing.
+Hello, World!
+Hello, World!
+Hello, World!
+Hello, World!
+Hello, World!
+My name is Alan Turing.
+
+Program exited normally.
+(gdb) quit
