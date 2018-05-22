@@ -2,29 +2,32 @@
 /* Author: Sean O'Donnell */
 int main()
 {
-  unsigned int i;
-  unsigned long j;
-  unsigned long acc = 0;
-  int scan1 = 0;
-  int scan2 = 0;
-  do {
-    printf("Enter A: ");
-    scan1 = scanf("%u", &i);
-  } while (scan1 != 1);
-  do {
-    printf("Enter B: ");
-    scan2 = scanf("%lu", &j);
-  } while (scan2 != 1);
-  printf("%u * %lu = ", i, j);
-  while (i > 0) {
-    if ((i & 1) != 0) {
-      acc += j;
+  int a;
+  int b;
+  unsigned char shiftChar;
+  unsigned short shiftShort;
+  unsigned short accumulator = 0;
+  printf("Enter 2 integers separated by a space: ");
+  if (scanf("%i %i", &a, &b) != 2) {
+    printf("Error: unable to scan 2 integers separated by a space. Try again.\n");
+    printf("Example:\n");
+    printf("Enter 2 integers separated by a space: 5 4\n");
+  } else if (a < 0 || b < 0) {
+    printf("Error: Both integers must be greater than or equal to zero.");
+  } else if (a > 255 || b > 255) {
+    printf("Error: Both integers must be less than 256.");
+  } else {
+    shiftChar = (unsigned char)a;
+    shiftShort = (unsigned short)b;
+    printf("%u * %d = ", shiftChar, shiftShort);
+    while (shiftChar > 0) {
+      if ((shiftChar & 1) != 0) {
+        accumulator += shiftShort;
+      }
+      shiftChar = shiftChar >> 1;
+      shiftShort = shiftShort << 1;
     }
-    i = i >> 1;
-    j = j << 1;
-  };
-  printf("%lu\n", acc);
-
+    printf("%d\n", accumulator);
+  }
   return (0);
-
 }
