@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define DEBUG 1
+#define DEBUG 0
 /* Author: Sean O'Donnell */
 
 unsigned short shiftProduct(int a, int b)
