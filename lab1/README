@@ -1,0 +1,3 @@
+1) Sean O'Donnell
+2) 4 hours
+3) I can't remember if Prof. Kirby mentioned this in class, but the lab document says to use two unsigned chars to calculated the product. This wasn't possible since the value being shifted to the left needs to be able to grow to 2 bytes (since the size of the product is two bytes). So, I used an unsigned short for shifting to the left -- the same type as the product variable.
