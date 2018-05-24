@@ -11,7 +11,7 @@
 unsigned short shiftProduct(unsigned char shiftR, unsigned char shiftLChar)
 {
     /* must cast the left shifting char value to short, since it grows to twice as many bits */
-    unsigned short shiftL = (unsigned short)shiftLChar;
+    unsigned short shiftL = shiftLChar;
     unsigned short product = 0;
     /* stop when char is 0 */
     while (shiftR > 0) {
