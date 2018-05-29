@@ -247,7 +247,24 @@ void performCalculation(SetList *list, int set, int calc)
 
 void freeSetList(SetList *list)
 {
-    
+    SetNode *setCursor;
+    DataNode *dataCursor;
+    void *current;
+    DataSet *dataSet;
+    setCursor = list->head;
+    while (setCursor != NULL) {
+        dataCursor = setCursor->data->head;
+        while (dataCursor != NULL) {
+            current = dataCursor;
+            dataCursor = dataCursor->next;
+            free(current);
+        }
+        free(setCursor->data);
+        current = setCursor;
+        setCursor = setCursor->next;
+        free(current);
+    }
+    free(list);
 }
 
 int main()
