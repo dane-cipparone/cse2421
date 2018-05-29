@@ -206,7 +206,6 @@ void print(DataSet *set)
         printf("\t%f\n", cursor->value);
         cursor = cursor->next;
     }
-    printf("\n");
 }
 
 void performCalculation(SetList *list, int set, int calc)
