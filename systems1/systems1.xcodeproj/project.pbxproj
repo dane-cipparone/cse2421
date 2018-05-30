@@ -10,10 +10,9 @@
 		3D2F4FD620BDBF730017DA65 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FD520BDBF730017DA65 /* main.c */; };
 		3D2F4FEA20BDC0610017DA65 /* README in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FDC20BDBF950017DA65 /* README */; };
 		3D2F4FEB20BDC0610017DA65 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FE220BDBF950017DA65 /* README.md */; };
-		3DFFCC6720BF50A0007705F3 /* lab2Readme in Sources */ = {isa = PBXBuildFile; fileRef = 3DFFCC6320BF50A0007705F3 /* lab2Readme */; };
-		3DFFCC6820BF50A0007705F3 /* lab2.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DFFCC6420BF50A0007705F3 /* lab2.c */; };
-		3DFFCC6920BF50A0007705F3 /* lab2linked.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DFFCC6520BF50A0007705F3 /* lab2linked.c */; };
-		3DFFCC6A20BF50A0007705F3 /* lab2.h in Sources */ = {isa = PBXBuildFile; fileRef = 3DFFCC6620BF50A0007705F3 /* lab2.h */; };
+		3DEE5EE320BF56DB0038D5EC /* lab2Readme in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EDF20BF56DA0038D5EC /* lab2Readme */; };
+		3DEE5EE420BF56DB0038D5EC /* lab2.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EE020BF56DA0038D5EC /* lab2.c */; };
+		3DEE5EE620BF56DB0038D5EC /* lab2.h in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EE220BF56DA0038D5EC /* lab2.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,10 +32,9 @@
 		3D2F4FD520BDBF730017DA65 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3D2F4FDC20BDBF950017DA65 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../../lab1/README; sourceTree = "<group>"; };
 		3D2F4FE220BDBF950017DA65 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		3DFFCC6320BF50A0007705F3 /* lab2Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = lab2Readme; sourceTree = "<group>"; };
-		3DFFCC6420BF50A0007705F3 /* lab2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lab2.c; sourceTree = "<group>"; };
-		3DFFCC6520BF50A0007705F3 /* lab2linked.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lab2linked.c; sourceTree = "<group>"; };
-		3DFFCC6620BF50A0007705F3 /* lab2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lab2.h; sourceTree = "<group>"; };
+		3DEE5EDF20BF56DA0038D5EC /* lab2Readme */ = {isa = PBXFileReference; lastKnownFileType = text; name = lab2Readme; path = ../lab2/lab2Readme; sourceTree = "<group>"; };
+		3DEE5EE020BF56DA0038D5EC /* lab2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = lab2.c; path = ../lab2/lab2.c; sourceTree = "<group>"; };
+		3DEE5EE220BF56DA0038D5EC /* lab2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lab2.h; path = ../lab2/lab2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +51,8 @@
 		3D2F4FC920BDBF730017DA65 = {
 			isa = PBXGroup;
 			children = (
+				3DEE5EE720BF56FE0038D5EC /* lab2 */,
+				3DEE5EDF20BF56DA0038D5EC /* lab2Readme */,
 				3D2F4FD420BDBF730017DA65 /* systems1 */,
 				3D2F4FD320BDBF730017DA65 /* Products */,
 			);
@@ -77,13 +77,18 @@
 			path = systems1;
 			sourceTree = "<group>";
 		};
+		3DEE5EE720BF56FE0038D5EC /* lab2 */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE5EE020BF56DA0038D5EC /* lab2.c */,
+				3DEE5EE220BF56DA0038D5EC /* lab2.h */,
+			);
+			name = lab2;
+			sourceTree = "<group>";
+		};
 		3DFFCC6220BF506C007705F3 /* lab2 */ = {
 			isa = PBXGroup;
 			children = (
-				3DFFCC6420BF50A0007705F3 /* lab2.c */,
-				3DFFCC6620BF50A0007705F3 /* lab2.h */,
-				3DFFCC6520BF50A0007705F3 /* lab2linked.c */,
-				3DFFCC6320BF50A0007705F3 /* lab2Readme */,
 			);
 			path = lab2;
 			sourceTree = "<group>";
@@ -145,10 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DFFCC6720BF50A0007705F3 /* lab2Readme in Sources */,
-				3DFFCC6820BF50A0007705F3 /* lab2.c in Sources */,
-				3DFFCC6920BF50A0007705F3 /* lab2linked.c in Sources */,
-				3DFFCC6A20BF50A0007705F3 /* lab2.h in Sources */,
+				3DEE5EE320BF56DB0038D5EC /* lab2Readme in Sources */,
+				3DEE5EE420BF56DB0038D5EC /* lab2.c in Sources */,
+				3DEE5EE620BF56DB0038D5EC /* lab2.h in Sources */,
 				3D2F4FEA20BDC0610017DA65 /* README in Sources */,
 				3D2F4FEB20BDC0610017DA65 /* README.md in Sources */,
 				3D2F4FD620BDBF730017DA65 /* main.c in Sources */,
@@ -265,7 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				GCC_VERSION = "";
+				GCC_VERSION = 4.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -274,7 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				GCC_VERSION = "";
+				GCC_VERSION = 4.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
