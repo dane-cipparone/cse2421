@@ -4,61 +4,11 @@
 #define DEBUG 0
 /* Author: Sean O'Donnell */
 
-typedef struct DataNode {
-    struct DataNode *next;
-    float value;
-} DataNode;
-
-typedef struct DataSet {
-    DataNode *head;
-    int count;
-} DataSet;
-
-typedef struct SetNode {
-    struct SetNode *next;
-    DataSet *data;
-} SetNode;
-
-typedef struct SetList {
-    SetNode *head;
-    int count;
-} SetList;
-
 int numberOfValues()
 {
     int vals = 0;
     scanf("%d", &vals);
     return (vals);
-}
-
-DataNode* data(int numValues)
-{
-    DataNode *head;
-    DataNode *previous;
-    DataNode *new;
-    float val;
-    head = NULL;
-    previous = NULL;
-    do {
-        if (DEBUG && previous != NULL) printf("previous->value = %f\n", previous->value);
-        if (DEBUG && previous == NULL) printf("previous is NULL\n");
-        
-        scanf(" %f", &val);
-        new = malloc(sizeof(DataNode));
-        new->next = NULL;
-        new->value = val;
-        if (previous != NULL) {
-            previous->next = new;
-        } else {
-            head = new;
-            if (DEBUG) printf("head->value = %f\n", head->value);
-        }
-        previous = new;
-        numValues--;
-        
-        if (DEBUG) printf("new->value = %f\n", previous->value);
-    } while (numValues > 0);
-    return (head);
 }
 
 int numberOfDataSets()
@@ -69,54 +19,50 @@ int numberOfDataSets()
     return (sets);
 }
 
-DataSet* dataSet(int number)
+float* data(int numValues)
 {
-    int count;
-    DataNode *dataHead;
-    DataSet *dataSet;
-    printf("Enter data set %d: ", number);
-    count = numberOfValues();
-    dataHead = data(count);
-    dataSet = malloc(sizeof(DataSet));
-    dataSet->head = dataHead;
-    dataSet->count = count;
-    return (dataSet);
+    float *values;
+    float *cursor;
+    float value;
+    values = malloc((numValues + 1) * sizeof(float));
+    cursor = values;
+    while (numValues > 0) {
+        scanf(" %f", &value);
+        *cursor = value;
+        cursor++;
+        numValues--;
+    }
+    *cursor = FLT_MIN;
+    return (values);
 }
 
-SetList* setList() {
-    SetList *list;
-    SetNode *previous;
-    SetNode *new;
-    DataSet *data;
-    int numSets;
-    int i;
+float* dataSet(int number)
+{
+    int count;
+    float *dataHead;
+    printf("Enter data set %d: ", number);
+    count = numberOfValues();
+    if (DEBUG) printf("%d values\n", count);
+    dataHead = data(count);
+    return (dataHead);
+}
+
+float** allSets() {
+    int numSets, i;
+    float **sets;
+    float **cursor;
+    float *data;
     numSets = numberOfDataSets();
-    list = malloc(sizeof(SetList));
-    list->head = NULL;
-    list->count = numSets;
-    previous = NULL;
-    i = 1;
-    while (i <= numSets) {
-        if (DEBUG) printf("Okay next set...\n");
-        if (DEBUG && previous != NULL) printf("previous->data->count = %d\n", previous->data->count);
-        if (DEBUG && previous == NULL) printf("previous is NULL\n");
-        
+    if (DEBUG) printf("%d sets\n", numSets);
+    sets = malloc((numSets + 1) * sizeof(float*));
+    cursor = sets;
+    for (i = 1; i <= numSets; i++) {
         data = dataSet(i);
-        new = malloc(sizeof(SetNode));
-        new->next = NULL;
-        new->data = data;
-        if (previous != NULL) {
-            previous->next = new;
-        } else {
-            list->head = new;
-            if (DEBUG) printf("num elements in setlist head: %d\n", list->head->data->count);
-        }
-        previous = new;
-        i++;
-        
-        if (DEBUG) printf("new->data->count = %d\n", previous->data->count);
+        *cursor = data;
+        cursor++;
     }
-    return (list);
+    *cursor = NULL;
+    return (sets);
 }
 
 void listCalculations()
@@ -145,98 +91,103 @@ int getCalculation()
     return (calc);
 }
 
-float min(DataSet *set)
+float min(float *set)
 {
-    DataNode *cursor;
+    float *cursor;
     float min;
-    cursor = set->head;
+    cursor = set;
     min = FLT_MAX;
-    while (cursor != NULL) {
-        if (cursor->value < min) {
-            min = cursor->value;
+    while (*cursor != FLT_MIN) {
+        if (*cursor < min) {
+            min = *cursor;
         }
-        cursor = cursor->next;
+        cursor++;
     }
     return (min);
 }
 
-float max(DataSet *set)
+float max(float *set)
 {
-    DataNode *cursor;
+    float *cursor;
     float max;
-    cursor = set->head;
-    max = FLT_MIN;
-    while (cursor != NULL) {
-        if (cursor->value > max) {
-            max = cursor->value;
+    cursor = set;
+    max = -1 * FLT_MAX;
+    while (*cursor != FLT_MIN) {
+        if (*cursor > max) {
+            max = *cursor;
         }
-        cursor = cursor->next;
+        cursor++;
     }
     return (max);
 }
 
-float sum(DataSet *set)
+float sum(float *set)
 {
-    DataNode *cursor;
+    float *cursor;
     float sum;
-    cursor = set->head;
+    cursor = set;
     sum = 0;
-    while (cursor != NULL) {
-        sum += cursor->value;
-        cursor = cursor->next;
+    while (*cursor != FLT_MIN) {
+        sum += *cursor;
+        cursor++;
     }
     return (sum);
 }
 
-float avg(DataSet *set)
+float avg(float *set)
 {
-    float total;
-    float avg;
+    float total, avg;
+    float *cursor;
+    int count;
     total = sum(set);
-    avg = total / set->count;
+    cursor = set;
+    count = 0;
+    while (*cursor != FLT_MIN) {
+        count++;
+        cursor++;
+    }
+    avg = total / count;
     return (avg);
 }
 
-void print(DataSet *set)
+void print(float *set)
 {
-    DataNode *cursor;
-    printf("Here is the set you selected:\n");
-    cursor = set->head;
-    while (cursor != NULL) {
-        printf("\t%f\n", cursor->value);
-        cursor = cursor->next;
+    float *cursor;
+    cursor = set;
+    while (*cursor != FLT_MIN) {
+        printf("\t%f\n", *cursor);
+        cursor++;
     }
 }
 
-void performCalculation(SetList *list, int set, int calc)
+void performCalculation(float **sets, int set, int calc)
 {
-    SetNode *setCursor;
-    DataSet *dataSet;
+    float **setsCursor;
+    float *dataSet;
     int i;
     float result;
-    setCursor = list->head;
-    for (i = 0; i < set - 1; i++) {
-        setCursor = setCursor->next;
-    }
-    dataSet = setCursor->data;
+    setsCursor = sets;
+    for (i = 1; i < set; i++) setsCursor++;
+    dataSet = *setsCursor;
     switch (calc) {
         case 1:
             result = min(dataSet);
-            printf("The set's min is %f.\n", result);
+            printf("The minimum value of set %d is %f.\n", set, result);
             break;
         case 2:
             result = max(dataSet);
-            printf("The set's max is %f.\n", result);
+            printf("The maximum value of set %d is %f.\n", set, result);
             break;
         case 3:
             result = sum(dataSet);
-            printf("The set's sum is %f.\n", result);
+            printf("The sum of all values in set %d is %f.\n", set, result);
             break;
         case 4:
             result = avg(dataSet);
-            printf("The set's average is %f.\n", result);
+            printf("The average of all values in set %d is %f.\n", set, result);
             break;
         case 5:
+            printf("Set %d: \n", set);
             print(dataSet);
             break;
         default:
@@ -245,63 +196,55 @@ void performCalculation(SetList *list, int set, int calc)
     printf("\n");
 }
 
-void freeSetList(SetList *list)
+void freeSetList(float **sets)
 {
-    SetNode *setCursor;
-    DataNode *dataCursor;
+    float **setsCursor;
+    float *dataCursor;
     void *current;
-    DataSet *dataSet;
-    setCursor = list->head;
-    while (setCursor != NULL) {
-        dataCursor = setCursor->data->head;
-        while (dataCursor != NULL) {
-            current = dataCursor;
-            dataCursor = dataCursor->next;
-            free(current);
-        }
-        free(setCursor->data);
-        current = setCursor;
-        setCursor = setCursor->next;
-        free(current);
+    setsCursor = sets;
+    while (*setsCursor != NULL) {
+        dataCursor = *setsCursor;
+        free(dataCursor);
+        setsCursor++;
     }
-    free(list);
+    free(sets);
 }
 
 int main()
 {
-    SetList *allSets;
-    SetNode *setCursor;
-    DataNode *dataCursor;
+    float **setsHead;
+    float **setsCursor;
+    float *dataCursor;
     int setToCalculate;
     int calculation;
     int i;
-    allSets = setList();
-    setCursor = allSets->head;
+    setsHead = allSets();
+    setsCursor = setsHead;
     i = 1;
-/*    if (DEBUG) { */
-        while (setCursor != NULL) {
-            printf("\nset %d of %d:\n", i, allSets->count);
-            dataCursor = setCursor->data->head;
-            while (dataCursor != NULL) {
-                printf("\t%f\n", dataCursor->value);
-                dataCursor = dataCursor->next;
-            }
-            printf("\n");
-            setCursor = setCursor->next;
-            i++;
+    /*    if (DEBUG) { */
+    while (*setsCursor != NULL) {
+        printf("\nset %d:\n", i);
+        dataCursor = *setsCursor;
+        while (*dataCursor != FLT_MIN) {
+            printf("\t%f\n", *dataCursor);
+            dataCursor++;
         }
-/*    } */
+        printf("\n");
+        setsCursor++;
+        i++;
+    }
+    /*    } */
     setToCalculate = dataSetToCalculate();
     listCalculations();
     calculation = getCalculation();
     while (calculation != 6) {
-        performCalculation(allSets, setToCalculate, calculation);
+        performCalculation(setsHead, setToCalculate, calculation);
         
         setToCalculate = dataSetToCalculate();
         listCalculations();
         calculation = getCalculation();
     }
-    freeSetList(allSets);
+    freeSetList(setsHead);
     
     return (0);
 }
