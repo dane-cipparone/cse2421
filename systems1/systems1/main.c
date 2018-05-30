@@ -7,9 +7,10 @@
 //
 
 #include <stdio.h>
+#include "lab2.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+    /* Lab 2 */
+    labMain();
     return 0;
 }

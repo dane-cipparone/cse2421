@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define DEBUG 0
+#include "lab2.h"
+#define DEBUG 1
 /* Author: Sean O'Donnell */
 
-typedef struct DataSet {
-    float *head;
-    int count;
-} DataSet;
+//typedef struct DataSet {
+//    float *head;
+//    int count;
+//} DataSet;
 
 int numberOfValues()
 {
@@ -15,7 +16,7 @@ int numberOfValues()
     return (vals);
 }
 
-int numberOfDataSets()
+int numSets()
 {
     int sets = 0;
     printf("Enter the number of data sets: ");
@@ -49,13 +50,13 @@ DataSet dataSet(int number)
 }
 
 DataSet *allSets() {
-    int numSets, i;
+    int count, i;
     DataSet *sets, *cursor, set;
     DataSet terminator = { NULL, 0 };
-    numSets = numberOfDataSets();
-    sets = malloc((numSets + 1) * sizeof(DataSet));
+    count = numSets();
+    sets = malloc((count + 1) * sizeof(DataSet));
     cursor = sets;
-    for (i = 1; i <= numSets; i++) {
+    for (i = 1; i <= count; i++) {
         set = dataSet(i);
         *cursor = set;
         cursor++;
@@ -200,13 +201,12 @@ void freeSetList(DataSet *sets)
     free(sets);
 }
 
-int main()
+void labMain(void)
+/*int main()*/
 {
     DataSet *setsHead;
     DataSet *setsCursor;
     float *dataCursor;
-    int setToCalculate;
-    int calculation;
     int i, j;
     setsHead = allSets();
     setsCursor = setsHead;
@@ -227,5 +227,5 @@ int main()
     promptCalculation(setsHead);
     freeSetList(setsHead);
     
-    return (0);
+    /*return (0);*/
 }
