@@ -4,10 +4,10 @@
 #define DEBUG 1
 /* Author: Sean O'Donnell */
 
-//typedef struct DataSet {
-//    float *head;
-//    int count;
-//} DataSet;
+/*typedef struct DataSet {
+    float *head;
+    int count;
+} DataSet;*/
 
 int numberOfValues()
 {
