@@ -9,7 +9,7 @@
     int count;
 } DataSet;*/
 
-int numberOfValues()
+int numVals()
 {
     int vals = 0;
     scanf("%d", &vals);
@@ -19,7 +19,7 @@ int numberOfValues()
 int numSets()
 {
     int sets = 0;
-    printf("Enter the number of data sets: ");
+    printf("enter the number of data sets: ");
     scanf("%d", &sets);
     return (sets);
 }
@@ -42,10 +42,11 @@ DataSet dataSet(int number)
 {
     DataSet dataSet;
     int count;
-    printf("Enter data set %d: ", number);
-    count = numberOfValues();
+    printf("enter data set %d: ", number);
+    count = numVals();
     dataSet.head = data(count);
     dataSet.count = count;
+    dataSet.index = number;
     return (dataSet);
 }
 
@@ -65,33 +66,33 @@ DataSet *allSets() {
     return (sets);
 }
 
-void listCalculations()
+void calcList()
 {
-    printf("1) Find the minimum value.\n");
-    printf("2) Find the maximum value.\n");
-    printf("3) Calculate the sum of all the values.\n");
-    printf("4) Calculate the average of all the values.\n");
-    printf("5) Print the values in the data set.\n");
-    printf("6) Exit the program.\n\n");
+    printf("1) find the minimum value.\n");
+    printf("2) find the maximum value.\n");
+    printf("3) calculate the sum of all the values.\n");
+    printf("4) calculate the average of all the values.\n");
+    printf("5) print the values in the data set.\n");
+    printf("6) exit the program.\n\n");
 }
 
-int dataSetToCalculate()
+int calcSet()
 {
     int set;
-    printf("Enter the number of the data set on which you wish to do calculations: ");
+    printf("enter the number of the data set on which you wish to do calculations: ");
     scanf("%d", &set);
     return (set);
 }
 
-int getCalculation()
+int calcNum()
 {
     int calc;
-    printf("Enter the calculation you'd like to perform: ");
+    printf("enter the calculation you'd like to perform: ");
     scanf("%d", &calc);
     return (calc);
 }
 
-float min(DataSet set)
+void min(DataSet set)
 {
     float *cursor, min;
     int i;
@@ -101,10 +102,10 @@ float min(DataSet set)
         if (*cursor < min) min = *cursor;
         cursor++;
     }
-    return (min);
+    printf("the minimum value in set %d is %.2f.\n", set.index, min);
 }
 
-float max(DataSet set)
+void max(DataSet set)
 {
     float *cursor, max;
     int i;
@@ -114,10 +115,10 @@ float max(DataSet set)
         if (*cursor > max) max = *cursor;
         cursor++;
     }
-    return (max);
+    printf("the maximum value in set %d is %.2f.\n", set.index, max);
 }
 
-float sum(DataSet set)
+float total(DataSet set)
 {
     float *cursor, sum;
     int i;
@@ -130,9 +131,14 @@ float sum(DataSet set)
     return (sum);
 }
 
-float avg(DataSet set)
+void sum(DataSet set)
 {
-    return sum(set) / set.count;
+    printf("the sum of all values in set %d is %.2f.\n", set.index, total(set));
+}
+
+void avg(DataSet set)
+{
+    printf("the average of all values in set %d is %.2f.\n", set.index, (total(set) / set.count));
 }
 
 void print(DataSet set)
@@ -140,51 +146,36 @@ void print(DataSet set)
     float *cursor;
     int i;
     cursor = set.head;
+    printf("set %d: \n", set.index);
     for (i = 0; i < set.count; i++) {
         printf("\t%.2f\n", *cursor);
         cursor++;
     }
 }
 
-void performCalculation(DataSet *setsCursor, int setNum, int calc)
+void (*calculations[5])(DataSet) = { min, max, sum, avg, print };
+
+void performCalculation(DataSet *setsCursor, int setIndex, int calc)
 {
     int i;
-    for (i = 1; i < setNum; i++) setsCursor++;
-    switch (calc) {
-        case 1:
-            printf("The minimum value in set %d is %.2f.\n", setNum, min(*setsCursor));
-            break;
-        case 2:
-            printf("The maximum value in set %d is %.2f.\n", setNum, max(*setsCursor));
-            break;
-        case 3:
-            printf("The sum of all values in set %d is %.2f.\n", setNum, sum(*setsCursor));
-            break;
-        case 4:
-            printf("The average of all values in set %d is %.2f.\n", setNum, avg(*setsCursor));
-            break;
-        case 5:
-            printf("Set %d: \n", setNum);
-            print(*setsCursor);
-            break;
-        default:
-            break;
-    }
+    for (i = 1; i < setIndex; i++) setsCursor++;
+    printf("\n");
+    calculations[calc - 1](*setsCursor);
     printf("\n");
 }
 
-void promptCalculation(DataSet *sets)
+void calcPrompt(DataSet *sets)
 {
     int setNumber, calculation;
-    setNumber = dataSetToCalculate();
-    listCalculations();
-    calculation = getCalculation();
+    setNumber = calcSet();
+    calcList();
+    calculation = calcNum();
     while (calculation != 6) {
         performCalculation(sets, setNumber, calculation);
         
-        setNumber = dataSetToCalculate();
-        listCalculations();
-        calculation = getCalculation();
+        setNumber = calcSet();
+        calcList();
+        calculation = calcNum();
     }
 }
 
@@ -211,20 +202,21 @@ void labMain(void)
     setsHead = allSets();
     setsCursor = setsHead;
     i = 1;
-    /*    if (DEBUG) { */
-    while (setsCursor->head != NULL) {
-        printf("\nset %d:\n", i);
-        dataCursor = setsCursor->head;
-        for (j = 0; j < setsCursor->count; j++) {
-            printf("\t%.2f\n", *dataCursor);
-            dataCursor++;
-        }
+    if (DEBUG) {
         printf("\n");
-        setsCursor++;
-        i++;
+        while (setsCursor->head != NULL) {
+            printf("set %d:\n", i);
+            dataCursor = setsCursor->head;
+            for (j = 0; j < setsCursor->count; j++) {
+                printf("\t%.2f\n", *dataCursor);
+                dataCursor++;
+            }
+            printf("\n");
+            setsCursor++;
+            i++;
+        }
     }
-    /*    } */
-    promptCalculation(setsHead);
+    calcPrompt(setsHead);
     freeSetList(setsHead);
     
     /*return (0);*/
