@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lab2.h"
 #define DEBUG 1
 /* Author: Sean O'Donnell */
 
-/*typedef struct DataSet {
+typedef struct DataSet {
     float *head;
     int count;
-} DataSet;*/
+    int index;
+} DataSet;
 
 int numVals()
 {
@@ -192,8 +192,7 @@ void freeSetList(DataSet *sets)
     free(sets);
 }
 
-void labMain(void)
-/*int main()*/
+int main()
 {
     DataSet *setsHead;
     DataSet *setsCursor;
@@ -219,5 +218,5 @@ void labMain(void)
     calcPrompt(setsHead);
     freeSetList(setsHead);
     
-    /*return (0);*/
+    return (0);
 }
