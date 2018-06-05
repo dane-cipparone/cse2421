@@ -179,44 +179,39 @@ void calcPrompt(DataSet *sets)
     }
 }
 
-void freeSetList(DataSet *sets)
+void printSets(DataSet *sets)
 {
-    DataSet *setsCursor;
     float *dataCursor;
-    setsCursor = sets;
+    int i = 1, j;
+    printf("\n");
+    while (sets->head != NULL) {
+        printf("set %d:\n", i);
+        dataCursor = sets->head;
+        for (j = 0; j < sets->count; j++) {
+            printf("\t%.2f\n", *dataCursor);
+            dataCursor++;
+        }
+        printf("\n");
+        sets++;
+        i++;
+    }
+}
+
+void labMain()
+{
+    DataSet *setsHead, *setsCursor;
+    float *dataCursor;
+    setsHead = allSets();
+    if (DEBUG) printSets(setsHead);
+    calcPrompt(setsHead);
+    
+    setsCursor = setsHead;
     while (setsCursor->head != NULL) {
         dataCursor = setsCursor->head;
         free(dataCursor);
         setsCursor++;
     }
-    free(sets);
-}
-
-int main()
-{
-    DataSet *setsHead;
-    DataSet *setsCursor;
-    float *dataCursor;
-    int i, j;
-    setsHead = allSets();
-    setsCursor = setsHead;
-    i = 1;
-    if (DEBUG) {
-        printf("\n");
-        while (setsCursor->head != NULL) {
-            printf("set %d:\n", i);
-            dataCursor = setsCursor->head;
-            for (j = 0; j < setsCursor->count; j++) {
-                printf("\t%.2f\n", *dataCursor);
-                dataCursor++;
-            }
-            printf("\n");
-            setsCursor++;
-            i++;
-        }
-    }
-    calcPrompt(setsHead);
-    freeSetList(setsHead);
+    free(setsHead);
     
-    return (0);
+//    return (0);
 }

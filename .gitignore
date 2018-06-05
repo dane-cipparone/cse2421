@@ -1,5 +1,6 @@
 systems1/systems1.xcworkspace/*
 systems1/systems1.xcodeproj/project.xcworkspace/
+systems1/systems1.xcodeproj/xcuserdata/*
 systems1/DerivedData/
 .DS_Store
 *.dSYM

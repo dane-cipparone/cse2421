@@ -1,1 +1,8 @@
 Name: Sean O'Donnell
+Effort: 4 hours
+Comments: While debugging I found it more readable to separate each element of the data sets by a newline.
+            The lab document said to use tabs, so it was a stylistic choice. I also found it interesting that
+            we have to prompt the user for the number of the data set to calculate on before they have the
+            opportunity to end the program. If there are multiple prompts, doesn't it make more sense to put
+            the option to exit on the first one?
+Debugger: I used the debugger to 
