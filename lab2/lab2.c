@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define DEBUG 1
+#define DEBUG 0
 /* Author: Sean O'Donnell */
 
 typedef struct DataSet {
@@ -27,11 +27,11 @@ int numSets()
 float* data(int numValues)
 {
     float *values, *cursor, value;
-    values = malloc(numValues * sizeof(float));
+    values = malloc(numValues * sizeof(float)); /* Allocate enough space for all of the values */
     cursor = values;
     while (numValues > 0) {
         scanf(" %f", &value);
-        *cursor = value;
+        *cursor = value; /* Set value at this address to the value read by scanf */
         cursor++;
         numValues--;
     }
@@ -53,9 +53,9 @@ DataSet dataSet(int number)
 DataSet *allSets() {
     int count, i;
     DataSet *sets, *cursor, set;
-    DataSet terminator = { NULL, 0 };
+    DataSet terminator = { NULL, 0 }; /* This DataSet will represent the end of the array */
     count = numSets();
-    sets = malloc((count + 1) * sizeof(DataSet));
+    sets = malloc((count + 1) * sizeof(DataSet)); /* count + 1 for number of sets + the terminator DataSet */
     cursor = sets;
     for (i = 1; i <= count; i++) {
         set = dataSet(i);
@@ -153,18 +153,18 @@ void print(DataSet set)
     }
 }
 
-void (*calculations[5])(DataSet) = { min, max, sum, avg, print };
+void (*calculations[5])(DataSet) = { min, max, sum, avg, print }; /* array of function pointers for calculations */
 
 void performCalculation(DataSet *setsCursor, int setIndex, int calc)
 {
     int i;
     for (i = 1; i < setIndex; i++) setsCursor++;
     printf("\n");
-    calculations[calc - 1](*setsCursor);
+    calculations[calc - 1](*setsCursor); /* pass setsCursor's value (a data set) to the (calc - 1)th calculation */
     printf("\n");
 }
 
-void calcPrompt(DataSet *sets)
+void calcPrompt(DataSet *sets) /* Prompt the user for the data set number and calculation number until they enter 6 for the calculation */
 {
     int setNumber, calculation;
     setNumber = calcSet();
@@ -179,6 +179,7 @@ void calcPrompt(DataSet *sets)
     }
 }
 
+/* debug-only */
 void printSets(DataSet *sets)
 {
     float *dataCursor;
@@ -205,8 +206,9 @@ int main()
     if (DEBUG) printSets(setsHead);
     calcPrompt(setsHead);
     
+    /* free memory allocated for array of data sets, and each data set itself */
     setsCursor = setsHead;
-    while (setsCursor->head != NULL) {
+    while (setsCursor->head != NULL) { /* while setsCursor isn't pointing to terminator DataSet */
         dataCursor = setsCursor->head;
         free(dataCursor);
         setsCursor++;

@@ -5,4 +5,29 @@ Comments: While debugging I found it more readable to separate each element of t
             we have to prompt the user for the number of the data set to calculate on before they have the
             opportunity to end the program. If there are multiple prompts, doesn't it make more sense to put
             the option to exit on the first one?
-Debugger: I used the debugger to 
+Debugger: I used the debugger to see if the program was reading the data sets into arrays correctly. I set
+            a breakpoint on the method 'dataSet' by entering "break dataSet", and ran the program. I stepped through
+            the first data set and on the second, printed out the values in the data set by accessing the
+            array's elements via subscripts, and printed out the number of values read in by the program. I have
+            included some of the output.
+Debugger Output:
+            (gdb) next
+            enter data set 2: 3 4 5 6
+            47        dataSet.head = data(count);
+            (gdb) print count
+            $2 = 3
+            (gdb) next
+            48        dataSet.count = count;
+            (gdb) print dataSet.head
+            $3 = (float *) 0x602090
+            (gdb) print dataSet.head[0]
+            $4 = 4
+            (gdb) print dataSet.head[1]
+            $5 = 5
+            (gdb) print dataSet.head[2]
+            $6 = 6
+            (gdb) print dataSet.head[3]
+            $7 = 0
+            (gdb) print dataSet.head[4]
+            $8 = 0
+            (gdb)
