@@ -3,6 +3,7 @@
 #define DEBUG 0
 /* Author: Sean O'Donnell */
 
+/* I would have put this in a header file if the lab doc didn't request only one c file */
 typedef struct DataSet {
     float *head;
     int count;
