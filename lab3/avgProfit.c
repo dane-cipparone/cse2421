@@ -7,5 +7,5 @@ float avgProfit(Node *head) {
 }
 
 void averageProfitPerSale(Node *head) {
-    printf("The average profi per sale is $%.2f.\n", avgProfit(head));
+    printf("The average profit per sale is $%.2f.\n", avgProfit(head));
 }
