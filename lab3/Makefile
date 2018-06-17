@@ -27,8 +27,8 @@ investment.o: investment.c lab3.h
 outStock.o: outStock.c lab3.h
 	gcc -ansi -pedantic -g -c outStock.c
 
-profile.o: profile.c lab3.h
-	gcc -ansi -pedantic -g -c profile.c
+profit.o: profit.c lab3.h
+	gcc -ansi -pedantic -g -c profit.c
 
 removeBook.o: removeBook.c lab3.h
 	gcc -ansi -pedantic -g -c removeBook.c
