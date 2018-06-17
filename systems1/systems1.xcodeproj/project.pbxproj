@@ -10,6 +10,24 @@
 		3D2F4FD620BDBF730017DA65 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FD520BDBF730017DA65 /* main.c */; };
 		3D2F4FEA20BDC0610017DA65 /* README in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FDC20BDBF950017DA65 /* README */; };
 		3D2F4FEB20BDC0610017DA65 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F4FE220BDBF950017DA65 /* README.md */; };
+		3D608DB920D572A200C90B15 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DB820D572A200C90B15 /* parser.c */; };
+		3D608DBB20D5777800C90B15 /* lab2linked.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DBA20D5777800C90B15 /* lab2linked.c */; };
+		3D608DC720D5912900C90B15 /* sales.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DBD20D5912800C90B15 /* sales.c */; };
+		3D608DC820D5912900C90B15 /* avgProfit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DBE20D5912900C90B15 /* avgProfit.c */; };
+		3D608DC920D5912900C90B15 /* wholesaleCost.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DBF20D5912900C90B15 /* wholesaleCost.c */; };
+		3D608DCA20D5912900C90B15 /* investment.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC020D5912900C90B15 /* investment.c */; };
+		3D608DCB20D5912900C90B15 /* inStock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC120D5912900C90B15 /* inStock.c */; };
+		3D608DCC20D5912900C90B15 /* addBook.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC220D5912900C90B15 /* addBook.c */; };
+		3D608DCD20D5912900C90B15 /* outStock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC320D5912900C90B15 /* outStock.c */; };
+		3D608DCE20D5912900C90B15 /* profit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC420D5912900C90B15 /* profit.c */; };
+		3D608DCF20D5912900C90B15 /* removeBook.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC520D5912900C90B15 /* removeBook.c */; };
+		3D608DD020D5912900C90B15 /* revenue.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DC620D5912900C90B15 /* revenue.c */; };
+		3D608DD320D5924000C90B15 /* prompter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DD220D5924000C90B15 /* prompter.c */; };
+		3D608DD520D5FC2C00C90B15 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 3D608DD420D5FC2C00C90B15 /* Makefile */; };
+		3D98DEAE20D1C03D0034EB4F /* lab3main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D98DEA920D1C03D0034EB4F /* lab3main.c */; };
+		3D98DEB020D1C2190034EB4F /* lab3.h in Sources */ = {isa = PBXBuildFile; fileRef = 3D98DEAC20D1C03D0034EB4F /* lab3.h */; };
+		3D98DEB120D1C2190034EB4F /* lab3.input in Sources */ = {isa = PBXBuildFile; fileRef = 3D98DEAB20D1C03D0034EB4F /* lab3.input */; };
+		3D98DEB220D1C2190034EB4F /* lab3Readme in Sources */ = {isa = PBXBuildFile; fileRef = 3D98DEAD20D1C03D0034EB4F /* lab3Readme */; };
 		3DEE5EE320BF56DB0038D5EC /* lab2Readme in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EDF20BF56DA0038D5EC /* lab2Readme */; };
 		3DEE5EE420BF56DB0038D5EC /* lab2.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EE020BF56DA0038D5EC /* lab2.c */; };
 		3DEE5EE620BF56DB0038D5EC /* lab2.h in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE5EE220BF56DA0038D5EC /* lab2.h */; };
@@ -32,6 +50,25 @@
 		3D2F4FD520BDBF730017DA65 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3D2F4FDC20BDBF950017DA65 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../../lab1/README; sourceTree = "<group>"; };
 		3D2F4FE220BDBF950017DA65 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		3D608DB820D572A200C90B15 /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parser.c; path = ../lab3/parser.c; sourceTree = "<group>"; };
+		3D608DBA20D5777800C90B15 /* lab2linked.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lab2linked.c; path = ../lab2/lab2linked.c; sourceTree = "<group>"; };
+		3D608DBC20D57B4A00C90B15 /* book_inventory */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = book_inventory; path = ../lab3/book_inventory; sourceTree = "<group>"; };
+		3D608DBD20D5912800C90B15 /* sales.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sales.c; path = ../lab3/sales.c; sourceTree = "<group>"; };
+		3D608DBE20D5912900C90B15 /* avgProfit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = avgProfit.c; path = ../lab3/avgProfit.c; sourceTree = "<group>"; };
+		3D608DBF20D5912900C90B15 /* wholesaleCost.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wholesaleCost.c; path = ../lab3/wholesaleCost.c; sourceTree = "<group>"; };
+		3D608DC020D5912900C90B15 /* investment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = investment.c; path = ../lab3/investment.c; sourceTree = "<group>"; };
+		3D608DC120D5912900C90B15 /* inStock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = inStock.c; path = ../lab3/inStock.c; sourceTree = "<group>"; };
+		3D608DC220D5912900C90B15 /* addBook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = addBook.c; path = ../lab3/addBook.c; sourceTree = "<group>"; };
+		3D608DC320D5912900C90B15 /* outStock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = outStock.c; path = ../lab3/outStock.c; sourceTree = "<group>"; };
+		3D608DC420D5912900C90B15 /* profit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = profit.c; path = ../lab3/profit.c; sourceTree = "<group>"; };
+		3D608DC520D5912900C90B15 /* removeBook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = removeBook.c; path = ../lab3/removeBook.c; sourceTree = "<group>"; };
+		3D608DC620D5912900C90B15 /* revenue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = revenue.c; path = ../lab3/revenue.c; sourceTree = "<group>"; };
+		3D608DD220D5924000C90B15 /* prompter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prompter.c; path = ../lab3/prompter.c; sourceTree = "<group>"; };
+		3D608DD420D5FC2C00C90B15 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../lab3/Makefile; sourceTree = "<group>"; };
+		3D98DEA920D1C03D0034EB4F /* lab3main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lab3main.c; path = ../lab3/lab3main.c; sourceTree = "<group>"; };
+		3D98DEAB20D1C03D0034EB4F /* lab3.input */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lab3.input; path = ../lab3/lab3.input; sourceTree = "<group>"; };
+		3D98DEAC20D1C03D0034EB4F /* lab3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lab3.h; path = ../lab3/lab3.h; sourceTree = "<group>"; };
+		3D98DEAD20D1C03D0034EB4F /* lab3Readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lab3Readme; path = ../lab3/lab3Readme; sourceTree = "<group>"; };
 		3DEE5EDF20BF56DA0038D5EC /* lab2Readme */ = {isa = PBXFileReference; lastKnownFileType = text; name = lab2Readme; path = ../lab2/lab2Readme; sourceTree = "<group>"; };
 		3DEE5EE020BF56DA0038D5EC /* lab2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = lab2.c; path = ../lab2/lab2.c; sourceTree = "<group>"; };
 		3DEE5EE220BF56DA0038D5EC /* lab2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lab2.h; path = ../lab2/lab2.h; sourceTree = "<group>"; };
@@ -51,6 +88,7 @@
 		3D2F4FC920BDBF730017DA65 = {
 			isa = PBXGroup;
 			children = (
+				3D98DEA820D1C01B0034EB4F /* lab3 */,
 				3DEE5EE720BF56FE0038D5EC /* lab2 */,
 				3DEE5EDF20BF56DA0038D5EC /* lab2Readme */,
 				3D2F4FD420BDBF730017DA65 /* systems1 */,
@@ -77,9 +115,43 @@
 			path = systems1;
 			sourceTree = "<group>";
 		};
+		3D608DD120D5913000C90B15 /* options */ = {
+			isa = PBXGroup;
+			children = (
+				3D608DD220D5924000C90B15 /* prompter.c */,
+				3D608DC220D5912900C90B15 /* addBook.c */,
+				3D608DBE20D5912900C90B15 /* avgProfit.c */,
+				3D608DC120D5912900C90B15 /* inStock.c */,
+				3D608DC020D5912900C90B15 /* investment.c */,
+				3D608DC320D5912900C90B15 /* outStock.c */,
+				3D608DC420D5912900C90B15 /* profit.c */,
+				3D608DC520D5912900C90B15 /* removeBook.c */,
+				3D608DC620D5912900C90B15 /* revenue.c */,
+				3D608DBD20D5912800C90B15 /* sales.c */,
+				3D608DBF20D5912900C90B15 /* wholesaleCost.c */,
+			);
+			name = options;
+			sourceTree = "<group>";
+		};
+		3D98DEA820D1C01B0034EB4F /* lab3 */ = {
+			isa = PBXGroup;
+			children = (
+				3D608DD420D5FC2C00C90B15 /* Makefile */,
+				3D608DD120D5913000C90B15 /* options */,
+				3D608DBC20D57B4A00C90B15 /* book_inventory */,
+				3D608DB820D572A200C90B15 /* parser.c */,
+				3D98DEAC20D1C03D0034EB4F /* lab3.h */,
+				3D98DEAB20D1C03D0034EB4F /* lab3.input */,
+				3D98DEA920D1C03D0034EB4F /* lab3main.c */,
+				3D98DEAD20D1C03D0034EB4F /* lab3Readme */,
+			);
+			name = lab3;
+			sourceTree = "<group>";
+		};
 		3DEE5EE720BF56FE0038D5EC /* lab2 */ = {
 			isa = PBXGroup;
 			children = (
+				3D608DBA20D5777800C90B15 /* lab2linked.c */,
 				3DEE5EE020BF56DA0038D5EC /* lab2.c */,
 				3DEE5EE220BF56DA0038D5EC /* lab2.h */,
 			);
@@ -150,11 +222,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D608DC820D5912900C90B15 /* avgProfit.c in Sources */,
+				3D98DEB020D1C2190034EB4F /* lab3.h in Sources */,
+				3D608DD020D5912900C90B15 /* revenue.c in Sources */,
+				3D608DCC20D5912900C90B15 /* addBook.c in Sources */,
+				3D98DEB120D1C2190034EB4F /* lab3.input in Sources */,
+				3D98DEB220D1C2190034EB4F /* lab3Readme in Sources */,
+				3D608DD520D5FC2C00C90B15 /* Makefile in Sources */,
+				3D608DD320D5924000C90B15 /* prompter.c in Sources */,
+				3D608DCD20D5912900C90B15 /* outStock.c in Sources */,
 				3DEE5EE320BF56DB0038D5EC /* lab2Readme in Sources */,
+				3D608DC720D5912900C90B15 /* sales.c in Sources */,
 				3DEE5EE420BF56DB0038D5EC /* lab2.c in Sources */,
+				3D608DC920D5912900C90B15 /* wholesaleCost.c in Sources */,
 				3DEE5EE620BF56DB0038D5EC /* lab2.h in Sources */,
+				3D608DCB20D5912900C90B15 /* inStock.c in Sources */,
 				3D2F4FEA20BDC0610017DA65 /* README in Sources */,
+				3D608DCE20D5912900C90B15 /* profit.c in Sources */,
+				3D608DCA20D5912900C90B15 /* investment.c in Sources */,
+				3D98DEAE20D1C03D0034EB4F /* lab3main.c in Sources */,
+				3D608DCF20D5912900C90B15 /* removeBook.c in Sources */,
+				3D608DBB20D5777800C90B15 /* lab2linked.c in Sources */,
 				3D2F4FEB20BDC0610017DA65 /* README.md in Sources */,
+				3D608DB920D572A200C90B15 /* parser.c in Sources */,
 				3D2F4FD620BDBF730017DA65 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -199,7 +199,7 @@ void printSets(DataSet *sets)
     }
 }
 
-int main()
+void lab2Main()
 {
     DataSet *setsHead, *setsCursor;
     float *dataCursor;
@@ -215,6 +215,4 @@ int main()
         setsCursor++;
     }
     free(setsHead);
-    
-    return (0);
 }

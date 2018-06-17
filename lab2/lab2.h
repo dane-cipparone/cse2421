@@ -4,4 +4,4 @@ typedef struct DataSet {
     int index;
 } DataSet;
 
-void labMain(void);
+void lab2Main(void);

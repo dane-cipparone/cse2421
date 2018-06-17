@@ -7,10 +7,9 @@
 //
 
 #include <stdio.h>
-#include "lab2.h"
+#include "lab3.h"
 
 int main(int argc, const char * argv[]) {
-    /* Lab 2 */
-    labMain();
+    lab3Main(argc, argv);
     return 0;
 }
