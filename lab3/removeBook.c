@@ -17,6 +17,7 @@ Node *removeNode(Node *head, int stockNumber) {
     Node *cursor, *prev = NULL;
     cursor = head;
     while (cursor != NULL && cursor->book.stockNumber != stockNumber) {
+        prev = cursor;
         cursor = cursor->next;
     }
     if (cursor != NULL) {

@@ -32,4 +32,6 @@ int main(int argc, const char * argv[]) {
     
     fclose(booksFile);
     fclose(outputFile);
+    
+    return (0);
 }
