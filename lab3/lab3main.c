@@ -13,8 +13,8 @@ void freeBooks(Node *head) {
     }
 }
 
-//int main(int argc, const char * argv[]) {
-void lab3Main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
+/*void lab3Main(int argc, const char * argv[]) {*/
     const char *inputfName, *outputfName;
     FILE *booksFile, *outputFile;
     Node *booksHead;
@@ -35,5 +35,5 @@ void lab3Main(int argc, const char * argv[]) {
     fclose(booksFile);
     fclose(outputFile);
     
-//    return (0);
+    return (0);
 }
