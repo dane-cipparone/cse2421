@@ -20,8 +20,8 @@ int main(int argc, const char * argv[]) {
     Node *booksHead;
     
     /* Get file names and open the files */
-    inputfName = argv[1];
-    outputfName = argv[2];
+    inputfName = argv[argc - 2];
+    outputfName = argv[argc - 1];
     booksFile = fopen(inputfName, "r");
     outputFile = fopen(outputfName, "w");
     
