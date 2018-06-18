@@ -4,9 +4,9 @@
 #include "lab3.h"
 /* Author: Sean O'Donnell */
 
-const int kTitleCharMax = 100;
-const int kAuthorCharMax = 50;
-const int kEmptySpaceCharMax = 1;
+const int kTitleCharsMax = 100;
+const int kAuthorCharsMax = 50;
+const int kEmptySpaceCharMax = 2; /* 2 characters: a newline and '\0' */
 
 Data scanBook() {
     Data book;
@@ -16,20 +16,20 @@ Data scanBook() {
     
     /* malloc char pointer space for fgets */
     space = malloc(kEmptySpaceCharMax * sizeof(char));
-    title = malloc(kTitleCharMax * sizeof(char));
-    author = malloc(kAuthorCharMax * sizeof(char));
+    title = malloc(kTitleCharsMax * sizeof(char));
+    author = malloc(kAuthorCharsMax * sizeof(char));
     
     printf("Enter the data for a new book in the correct input format:\n");
     fgets(space, kEmptySpaceCharMax, stdin); /* Hack: fgets needs to read in a newline before it can start waiting for the user's input */
     free(space);
     
     /* User fgets for string data */
-    fgets(title, kTitleCharMax, stdin);
+    fgets(title, kTitleCharsMax, stdin);
     scrubNewline(title);
     strcpy(book.title, title);
     free(title);
     
-    fgets(author, kAuthorCharMax, stdin);
+    fgets(author, kAuthorCharsMax, stdin);
     scrubNewline(author);
     strcpy(book.author, author);
     free(author);
