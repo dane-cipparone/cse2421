@@ -1,9 +1,9 @@
 # Author: Sean O'Donnell
 
-all: mklab3
+all: lab3
 
-mklab3: lab3main.o parser.o prompter.o addBook.o avgProfit.o inStock.o investment.o outStock.o profit.o removeBook.o revenue.o sales.o wholesaleCost.o
-	gcc lab3main.o parser.o prompter.o addBook.o avgProfit.o inStock.o investment.o outStock.o profit.o removeBook.o revenue.o sales.o wholesaleCost.o -o mklab3
+lab3: lab3main.o parser.o prompter.o addBook.o avgProfit.o inStock.o investment.o outStock.o profit.o removeBook.o revenue.o sales.o wholesaleCost.o
+	gcc lab3main.o parser.o prompter.o addBook.o avgProfit.o inStock.o investment.o outStock.o profit.o removeBook.o revenue.o sales.o wholesaleCost.o -o lab3
 
 lab3main.o: lab3main.c lab3.h
 	gcc -ansi -pedantic -g -c lab3main.c
@@ -45,4 +45,4 @@ wholesaleCost.o: wholesaleCost.c lab3.h
 	gcc -ansi -pedantic -g -c wholesaleCost.c
 
 clean:
-	rm -rf *.o mklab3
+	rm -rf *.o lab3
