@@ -1,3 +1,5 @@
+# Author: Sean O'Donnell
+
 all: mklab3
 
 mklab3: lab3main.o parser.o prompter.o addBook.o avgProfit.o inStock.o investment.o outStock.o profit.o removeBook.o revenue.o sales.o wholesaleCost.o
