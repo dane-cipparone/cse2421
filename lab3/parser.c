@@ -106,7 +106,6 @@ void printBooks(Node *head, FILE *outputFile) {
     i = 1;
     cursor = head;
     while (cursor != NULL) {
-        fprintf(outputFile, "\n\nBOOK #%d:\n\n", i);
         fprintf(outputFile, "%s\n", cursor->book.title);
         fprintf(outputFile, "%s\n", cursor->book.author);
         fprintf(outputFile, "%d\n", cursor->book.stockNumber);
