@@ -22,6 +22,8 @@ int main(int argc, const char * argv[]) {
     /* Get file names and open the files */
     inputfName = argv[argc - 2];
     outputfName = argv[argc - 1];
+    printf("%s\n", inputfName);
+    printf("%s\n", outputfName);
     booksFile = fopen(inputfName, "r");
     outputFile = fopen(outputfName, "w");
     
