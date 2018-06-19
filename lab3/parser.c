@@ -4,11 +4,6 @@
 #include "lab3.h"
 /* Author: Sean O'Donnell */
 
-const int kTitleCharMax = 100;
-const int kAuthorCharMax = 50;
-const int kIntCharMax = 15;
-const int kFloatCharMax = 30;
-
 /* Remove the hanging newline char at the end of an fgets read */
 void scrubNewline(char *line) {
     line[strlen(line) - 1] = '\0';

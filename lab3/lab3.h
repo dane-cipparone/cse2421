@@ -13,6 +13,11 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
+#define kTitleCharMax 100
+#define kAuthorCharMax 50
+#define kIntCharMax 10
+#define kFloatCharMax 20
+
 Node *readBooks(FILE *f);
 void printBooks(Node *head, FILE *outputFile);
 int countBooks(Node *head);
