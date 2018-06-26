@@ -1,3 +1,5 @@
+# Author: Sean O'Donnell
+
 .file		"hw3.s"		#optional directive
 .section .rodata
 .LC0:
