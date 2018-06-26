@@ -6,7 +6,7 @@
 /* return void: only reading from the list */
 void (*userReadOptions[8])(Node *) = {totalRevenue, totalWholesaleCost, currentInvestment, totalProfit, totalNumSales, averageProfitPerSale, inStock, outOfStock};
 /* return Node*: changing the list somehow and therefore may change list's head pointer */
-Node *(*userChangeOptions[2])(Node *) = {addBook, removeBook};
+void (*userChangeOptions[2])(Node **) = {addBook, removeBook};
 
 const int kExitOption = 11;
 
@@ -24,7 +24,7 @@ Node *promptForUserOption(Node *head) {
     int option;
     option = getUserOption();
     while (option != kExitOption) { /* Keep prompting until they enter 11 */
-        if (option > 8) head = userChangeOptions[option - 9](head); /* Options 9 - 10 mutate the list */
+        if (option > 8) userChangeOptions[option - 9](&head); /* Options 9 - 10 mutate the list */
         else userReadOptions[option - 1](head);
         option = getUserOption();
     }

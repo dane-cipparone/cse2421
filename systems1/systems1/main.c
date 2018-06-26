@@ -10,6 +10,17 @@
 #include "lab3.h"
 
 int main(int argc, const char * argv[]) {
+    char *stringConstant, stringArray[] = "Go Bucks!";
+    stringConstant = stringArray;
+    printf("%c\n", stringConstant[3]);
+    stringConstant[3] = 'v';
+    printf("%s\n", stringConstant);
+    
+    printf("%c\n", stringArray[3]);
+    stringArray[3] = 'd';
+    printf("%s\n", stringArray);
+    
+    
     lab3Main(argc, argv);
     return 0;
 }

@@ -173,7 +173,7 @@ void calcPrompt(DataSet *sets) /* Prompt the user for the data set number and ca
     calculation = calcNum();
     while (calculation != 6) {
         performCalculation(sets, setNumber, calculation);
-        
+
         setNumber = calcSet();
         calcList();
         calculation = calcNum();
@@ -199,14 +199,14 @@ void printSets(DataSet *sets)
     }
 }
 
-void lab2Main()
+int main()
 {
     DataSet *setsHead, *setsCursor;
     float *dataCursor;
     setsHead = allSets();
     if (DEBUG) printSets(setsHead);
     calcPrompt(setsHead);
-    
+
     /* free memory allocated for array of data sets, and each data set itself */
     setsCursor = setsHead;
     while (setsCursor->head != NULL) { /* while setsCursor isn't pointing to terminator DataSet */
@@ -215,4 +215,6 @@ void lab2Main()
         setsCursor++;
     }
     free(setsHead);
+
+    return (0);
 }

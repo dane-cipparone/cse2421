@@ -34,6 +34,6 @@ Node *removeNode(Node *head, int stockNumber) {
     return head;
 }
 
-Node *removeBook(Node *head) {
-    return removeNode(head, getStockNumber()); /* Return head pointer from removeNode function */
+void removeBook(Node **ptr2head) {
+    *ptr2head = removeNode(*ptr2head, getStockNumber());
 }

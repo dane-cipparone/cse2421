@@ -49,12 +49,12 @@ Data scanBook() {
     return book;
 }
 
-Node *addBook(Node *head) {
+void addBook(Node **ptr2head) {
     Data book;
     Node *newNode;
     book = scanBook(); /* Assume correct input */
     newNode = malloc(sizeof(Node)); /* Allocate space for new node */
     newNode->book = book;
     newNode->next = NULL;
-    return insertBook(head, newNode); /* Return head pointer from insertion sort function */
+    *ptr2head = insertBook(*ptr2head, newNode);
 }

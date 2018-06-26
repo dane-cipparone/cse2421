@@ -33,8 +33,8 @@ void totalNumSales(Node *head);
 void averageProfitPerSale(Node *head);
 void inStock(Node *head);
 void outOfStock(Node *head);
-Node *addBook(Node *head);
-Node *removeBook(Node *head);
+void addBook(Node **ptr2head);
+void removeBook(Node **ptr2head);
 
 float revenue(Node *head);
 float investment(Node *head);
