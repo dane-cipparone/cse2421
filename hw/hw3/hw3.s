@@ -1,5 +1,5 @@
 .file		"hw3.s"		#optional directive
-.section	.rodata		#required directives for rodata
+.section .rodata
 .LC0:
 	.string	"Please enter an integer on the next line, followed by enter:\n"
 .LC1:
